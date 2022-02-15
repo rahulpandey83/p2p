@@ -1,0 +1,58 @@
+<entity-engine-xml>
+<Party partyId="SUP_HONDA" statusId="PARTY_ENABLED" partyTypeId="PARTY_GROUP"/>
+<PartyGroup partyId="SUP_HONDA" groupName="HONDA PVT"/>
+<PartyRole partyId="SUP_HONDA" roleTypeId="SUPPLIER"/>
+<PartyStatus partyId="SUP_HONDA" statusId="PARTY_ENABLED" statusDate="2022-02-10 12:00:00.0"/>
+
+<PartyRelationship partyIdFrom="Company" roleTypeIdFrom="INTERNAL_ORGANIZATIO" partyIdTo="SUP_HONDA" roleTypeIdTo="SUPPLIER" partyRelationshipTypeId="SUPPLIER_REL" fromDate="2022-02-10 00:00:00"/>
+
+
+
+
+<ContactMech contactMechId="HUN_1" contactMechTypeId="EMAIL_ADDRESS" infoString="honda@example.com"/>
+<PartyContactMech partyId="SUP_HONDA" contactMechId="HUN_1" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y"/>
+<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_EMAIL" partyId="SUP_HONDA" contactMechId="HUN_1" fromDate="2022-02-10 00:00:00.0"/>
+
+
+<ContactMech contactMechId="HUN_2" contactMechTypeId="TELECOM_NUMBER"/>
+<TelecomNumber contactMechId="HUN_2" areaCode="101" contactNumber="1234567890"/>
+<PartyContactMech partyId="SUP_HONDA" contactMechId="HUN_2" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y"/>
+<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_PHONE" partyId="SUP_HONDA" contactMechId="HUN_2" fromDate="2022-02-10 00:00:00.0"/>
+
+
+<ContactMech contactMechId="HUN_3" contactMechTypeId="POSTAL_ADDRESS"/>
+<PostalAddress contactMechId="HUN_3" toName="HONDA XYZ" attnName="ZJAA" address1="2003 Open Blvd" city="Orem" postalCode="84058" countryGeoId="USA" stateProvinceGeoId="UT" geoPointId="9000"/>
+<PartyContactMech partyId="SUP_HONDA" contactMechId="HUN_3" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y"/>
+<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_LOCATION" partyId="SUP_HONDA" contactMechId="HUN_3" fromDate="2022-02-10 00:00:00.0"/>
+
+
+<Party partyId="SUP_AUTO_PARTS" statusId="PARTY_ENABLED" partyTypeId="PARTY_GROUP"/>
+<PartyGroup partyId="SUP_AUTO_PARTS" groupName="Auto Parts Supplier"/>
+<PartyRole partyId="SUP_AUTO_PARTS" roleTypeId="SUPPLIER"/>
+<PartyStatus partyId="SUP_AUTO_PARTS" statusId="PARTY_ENABLED" statusDate="2022-02-10 12:00:00.0"/>
+
+<PartyRelationship partyIdFrom="Company" roleTypeIdFrom="INTERNAL_ORGANIZATIO" partyIdTo="SUP_AUTO_PARTS" roleTypeIdTo="SUPPLIER" partyRelationshipTypeId="SUPPLIER_REL" fromDate="2022-02-10 00:00:00"/>
+
+
+
+<ContactMech contactMechId="AUT_1" contactMechTypeId="EMAIL_ADDRESS" infoString="supplier@gmail.com"/>
+<PartyContactMech partyId="SUP_AUTO_PARTS" contactMechId="AUT_1" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y"/>
+<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_EMAIL" partyId="SUP_AUTO_PARTS" contactMechId="AUT_1" fromDate="2022-02-10 00:00:00.0"/>
+
+
+<ContactMech contactMechId="AUT_2" contactMechTypeId="TELECOM_NUMBER"/>
+<TelecomNumber contactMechId="AUT_2" areaCode="101" contactNumber="1212121212"/>
+<PartyContactMech partyId="SUP_AUTO_PARTS" contactMechId="AUT_2" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y"/>
+<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_PHONE" partyId="SUP_AUTO_PARTS" contactMechId="AUT_2" fromDate="2022-02-10 00:00:00.0"/>
+
+
+<ContactMech contactMechId="AUT_3" contactMechTypeId="POSTAL_ADDRESS"/>
+<PostalAddress contactMechId="AUT_3" toName="supplier XYZ" attnName="asas" address1="2003 Open Blvd" city="Orem" postalCode="84058" countryGeoId="USA" stateProvinceGeoId="UT" geoPointId="9000"/>
+<PartyContactMech partyId="SUP_AUTO_PARTS" contactMechId="AUT_3" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y"/>
+<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_LOCATION" partyId="SUP_AUTO_PARTS" contactMechId="AUT_3" fromDate="2022-02-10 00:00:00.0"/>
+
+
+
+</entity-engine-xml>
+
+
