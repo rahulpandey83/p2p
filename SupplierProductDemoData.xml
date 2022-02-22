@@ -1,0 +1,9 @@
+<entity-engine-xml>     
+    <SupplierProduct partyId="SUP_HONDA" minimumOrderQuantity="20" supplierPrefOrderId="10_MAIN_SUPPL" currencyUomId="USD" productId="PROD_1" lastPrice="9.0" supplierProductId="PROD_1_1" supplierProductName="NIKE" availableFromDate="2022-02-01 00:00:00.000" />
+	<SupplierProduct partyId="SUP_HONDA" minimumOrderQuantity="20" supplierPrefOrderId="90_ALT_SUPPL" currencyUomId="USD" productId="PROD_4" lastPrice="20" supplierProductId="PROD_1_4" supplierProductName="RUN" availableFromDate="2022-02-01 00:00:00.000" />
+	<SupplierProduct partyId="SUP_HONDA" minimumOrderQuantity="20" supplierPrefOrderId="10_MAIN_SUPPL" currencyUomId="USD" productId="PROD_3" lastPrice="20" supplierProductId="PROD_1_3" supplierProductName="ADIDAS" availableFromDate="2022-02-01 00:00:00.000" />
+
+	<SupplierProduct partyId="SUP_AUTO_PARTS" minimumOrderQuantity="20" supplierPrefOrderId="10_MAIN_SUPPL" currencyUomId="USD" productId="PROD_2" lastPrice="10" supplierProductId="PROD_1_2" supplierProductName="PUMA" availableFromDate="2022-02-01 00:00:00.000" />
+	<SupplierProduct partyId="SUP_AUTO_PARTS" minimumOrderQuantity="20" supplierPrefOrderId="90_ALT_SUPPL" currencyUomId="USD" productId="PROD_3" lastPrice="20" supplierProductId="PROD_1_3" supplierProductName="ADIDAS" availableFromDate="2022-02-01 00:00:00.000" />
+	<SupplierProduct partyId="SUP_AUTO_PARTS" minimumOrderQuantity="20" supplierPrefOrderId="10_MAIN_SUPPL" currencyUomId="USD" productId="PROD_4" lastPrice="20" supplierProductId="PROD_1_4" supplierProductName="RUN" availableFromDate="2022-02-01 00:00:00.000" />
+</entity-engine-xml> 
