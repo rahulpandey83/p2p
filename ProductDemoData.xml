@@ -1,0 +1,68 @@
+<entity-engine-xml>
+	<Product productId="PROD_1" productTypeId="FINISHED_GOOD" productName="T-SHIRTS" internalName="T-SHIRT" brandName="NIKE" isVirtual="N" isVariant="N" />
+	<Product productId="PROD_2" productTypeId="FINISHED_GOOD" productName="SHOES" internalName="SHOES" brandName="PUMA" isVirtual="N" isVariant="N" />
+	<Product productId="PROD_3" productTypeId="FINISHED_GOOD" productName="JEANS" internalName="JEANS" brandName="ADIDAS" isVirtual="N" isVariant="N" />
+	<Product productId="PROD_4" productTypeId="FINISHED_GOOD" productName="SWEATER" internalName="SWEATER" brandName="RUN" isVirtual="N" isVariant="N" />
+
+	<!-- Products Data -->
+	<Product productId="DENIM_SHIRT" productTypeId="FINISHED_GOOD" productName="SHIRT" internalName="SHIRT" description="SHIRT TYPE " isVirtual="Y" isVariant="N" createdDate="2022-02-16 12:50:54.794" />
+	<Product productId="DENIM_SHIRT_S_R" productTypeId="FINISHED_GOOD" internalName="Shirt Small Red" productName="Shirt Small Red" description="Shirt Small Red" isVirtual="N" isVariant="Y" />
+	<Product productId="DENIM_SHIRT_S_Y" productTypeId="FINISHED_GOOD" internalName="Shirt Small yellow" productName="Shirt Small Green" description="Shirt Small Green" isVirtual="N" isVariant="Y" />
+	<Product productId="DENIM_SHIRT_S_B" productTypeId="FINISHED_GOOD" internalName="Shirt Small Blue" productName="Shirt Small Blue" description="Shirt Small Blue" isVirtual="N" isVariant="Y" />
+
+	<Product productId="DENIM_SHIRT_M_R" productTypeId="FINISHED_GOOD" internalName="Shirt Small Red" productName="Shirt Small Red" description="Shirt Small Red" isVirtual="N" isVariant="Y" />
+	<Product productId="DENIM_SHIRT_M_Y" productTypeId="FINISHED_GOOD" internalName="Shirt Small Green" productName="Shirt Small yellow" description="Shirt Small Green" isVirtual="N" isVariant="Y" />
+	<Product productId="DENIM_SHIRT_M_B" productTypeId="FINISHED_GOOD" internalName="Shirt Small Blue" productName="Shirt Small Blue" description="Shirt Small Blue" isVirtual="N" isVariant="Y" />
+
+	<Product productId="DENIM_SHIRT_L_R" productTypeId="FINISHED_GOOD" internalName="Shirt Small Red" productName="Shirt Small Red" description="Shirt Small Red" isVirtual="N" isVariant="Y" />
+	<Product productId="DENIM_SHIRT_L_Y" productTypeId="FINISHED_GOOD" internalName="Shirt Small yellow" productName="Shirt Small Green" description="Shirt Small Green" isVirtual="N" isVariant="Y" />
+	<Product productId="DENIM_SHIRT_L_B" productTypeId="FINISHED_GOOD" internalName="Shirt Small Blue" productName="Shirt Small Blue" description="Shirt Small Blue" isVirtual="N" isVariant="Y" />
+
+	<ProductFeatureCategory productFeatureCategoryId="SHIRT_FEATURE" description="shirt features" />
+	<ProductFeature productFeatureId="SIZE_SMALL" productFeatureTypeId="SIZE" productFeatureCategoryId="SHIRT_FEATURE" description="SMALL" />
+	<ProductFeature productFeatureId="SIZE_MEDIUM" productFeatureTypeId="SIZE" productFeatureCategoryId="SHIRT_FEATURE" description="MIDIUM" />
+	<ProductFeature productFeatureId="SIZE_LARGE" productFeatureTypeId="SIZE" productFeatureCategoryId="SHIRT_FEATURE" description="LARGE" />
+
+	<ProductFeature productFeatureId="COLOR_RED_" productFeatureTypeId="COLOR" productFeatureCategoryId="SHIRT_FEATURE" description="RED" />
+	<ProductFeature productFeatureId="COLOR_BULE_" productFeatureTypeId="COLOR" productFeatureCategoryId="SHIRT_FEATURE" description="BLUE" />
+	<ProductFeature productFeatureId="COLOR_YELLOW_" productFeatureTypeId="COLOR" productFeatureCategoryId="SHIRT_FEATURE" description="YELOW" />
+
+	<ProductAssoc productId="DENIM_SHIRT" productIdTo="DENIM_SHIRT_S_R" productAssocTypeId="PRODUCT_VARIANT" fromDate="2022-02-16 12:50:54.794" />
+	<ProductAssoc productId="DENIM_SHIRT" productIdTo="DENIM_SHIRT_S_Y" productAssocTypeId="PRODUCT_VARIANT" fromDate="2022-02-16 12:50:54.794" />
+	<ProductAssoc productId="DENIM_SHIRT" productIdTo="DENIM_SHIRT_S_B" productAssocTypeId="PRODUCT_VARIANT" fromDate="2022-02-16 12:50:54.794" />
+
+	<ProductAssoc productId="DENIM_SHIRT" productIdTo="DENIM_SHIRT_M_R" productAssocTypeId="PRODUCT_VARIANT" fromDate="2022-02-16 12:50:54.794" />
+	<ProductAssoc productId="DENIM_SHIRT" productIdTo="DENIM_SHIRT_M_Y" productAssocTypeId="PRODUCT_VARIANT" fromDate="2022-02-16 12:50:54.794" />
+	<ProductAssoc productId="DENIM_SHIRT" productIdTo="DENIM_SHIRT_M_B" productAssocTypeId="PRODUCT_VARIANT" fromDate="2022-02-16 12:50:54.794" />
+
+	<ProductAssoc productId="DENIM_SHIRT" productIdTo="DENIM_SHIRT_L_R" productAssocTypeId="PRODUCT_VARIANT" fromDate="2022-02-16 12:50:54.794" />
+	<ProductAssoc productId="DENIM_SHIRT" productIdTo="DENIM_SHIRT_L_Y" productAssocTypeId="PRODUCT_VARIANT" fromDate="2022-02-16 12:50:54.794" />
+	<ProductAssoc productId="DENIM_SHIRT" productIdTo="DENIM_SHIRT_L_B" productAssocTypeId="PRODUCT_VARIANT" fromDate="2022-02-16 12:50:54.794" />
+
+	<ProductFeatureAppl productId="DENIM_SHIRT" productFeatureId="SIZE_SMALL" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT" productFeatureId="SIZE_MEDIUM" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT" productFeatureId="SIZE_LARGE" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+
+	<ProductFeatureAppl productId="DENIM_SHIRT" productFeatureId="COLOR_RED_" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT" productFeatureId="COLOR_YELLOW_" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT" productFeatureId="COLOR_BULE_" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+    
+	<ProductFeatureAppl productId="DENIM_SHIRT_S_R" productFeatureId="SIZE_SMALL" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_S_R" productFeatureId="COLOR_RED_" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_S_Y" productFeatureId="SIZE_SMALL" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_S_Y" productFeatureId="COLOR_YELLOW_" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_S_B" productFeatureId="SIZE_SMALL" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_S_B" productFeatureId="COLOR_BULE_" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_M_R" productFeatureId="SIZE_MEDIUM" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_M_R" productFeatureId="COLOR_RED_" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_M_Y" productFeatureId="SIZE_MEDIUM" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_M_Y" productFeatureId="COLOR_YELLOW_" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_M_B" productFeatureId="SIZE_MEDIUM" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_M_B" productFeatureId="COLOR_BULE_" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_L_R" productFeatureId="SIZE_LARGE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_L_R" productFeatureId="COLOR_RED_" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_L_Y" productFeatureId="SIZE_LARGE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_L_Y" productFeatureId="COLOR_YELLOW_" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_L_B" productFeatureId="SIZE_LARGE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+	<ProductFeatureAppl productId="DENIM_SHIRT_L_B" productFeatureId="COLOR_BULE_" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2022-02-16 12:50:54.794" />
+</entity-engine-xml>
