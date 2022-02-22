@@ -1,0 +1,23 @@
+ <entity-engine-xml>
+ <!-- Catalog data and category -->
+	<ProdCatalog prodCatalogId="NEW_CATALOG" catalogName="New Catalog" useQuickAdd="Y" />
+
+	<ProductCategory categoryName="Browse Root" longDescription="Browse Root Category" productCategoryId="CATALOG_ID_1" productCategoryTypeId="CATALOG_CATEGORY" />
+	<ProductCategory categoryName="Clothes" longDescription="long description of Gizmos" primaryParentCategoryId="CATALOG_ID_1" productCategoryId="CLOTHES" productCategoryTypeId="CATALOG_CATEGORY" />
+
+	<ProdCatalogCategory prodCatalogId="NEW_CATALOG" productCategoryId="CATALOG_ID_1" fromDate="2022-02-16 12:50:54.794" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" />
+	<ProdCatalogCategory prodCatalogId="NEW_CATALOG" productCategoryId="CLOTHES" fromDate="2022-02-16 12:50:54.794" prodCatalogCategoryTypeId="PCCT_VIEW_ALLW" />
+
+	<ProductCategoryRollup fromDate="2022-02-16 12:50:54.794" parentProductCategoryId="CATALOG_ID_1" productCategoryId="CLOTHES" />
+
+	<Product productId="PRODUCT_1" productTypeId="FINISHED_GOOD" productName="T-SHIRTS" internalName="T-SHIRT" brandName="NIKE" isVirtual="N" isVariant="N" />
+	<Product productId="PRODUCT_2" productTypeId="FINISHED_GOOD" productName="SHOES" internalName="SHOES" brandName="PUMA" isVirtual="N" isVariant="N" />
+	<Product productId="PRODUCT_3" productTypeId="FINISHED_GOOD" productName="JEANS" internalName="JEANS" brandName="ADIDAS" isVirtual="N" isVariant="N" />
+	<Product productId="PRODUCT_4" productTypeId="FINISHED_GOOD" productName="SWEATER" internalName="SWEATER" brandName="RUN" isVirtual="N" isVariant="N" />
+
+	<ProductCategoryMember productCategoryId="CLOTHES" productId="PRODUCT_1" fromDate="2022-02-16 12:50:54.794" />
+	<ProductCategoryMember productCategoryId="CLOTHES" productId="PRODUCT_2" fromDate="2022-02-16 12:50:54.794" />
+	<ProductCategoryMember productCategoryId="CLOTHES" productId="PRODUCT_3" fromDate="2022-02-16 12:50:54.794" />
+	<ProductCategoryMember productCategoryId="CLOTHES" productId="PRODUCT_4" fromDate="2022-02-16 12:50:54.794" />
+    <ProductCategoryMember productCategoryId="CLOTHES" productId="DENIM_SHIRT" fromDate="2022-02-16 12:50:54.794" />
+</entity-engine-xml>
