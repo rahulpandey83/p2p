@@ -1,0 +1,141 @@
+<entity-engine-xml>
+    <!-- first manager data -->
+	<Party partyId="MANAGER_1" statusId="PARTY_ENABLED" partyTypeId="PERSON"/>
+    <Person partyId="MANAGER_1" firstName="First" lastName="manager"/>
+	<PartyRole partyId="MANAGER_1" roleTypeId="MANAGER" />
+    <PartyStatus partyId="MANAGER_1" statusId="PARTY_ENABLED" statusDate="2022-02-10 12:00:00.0" />
+
+	<ContactMech contactMechId="MAN_1" contactMechTypeId="EMAIL_ADDRESS" infoString="firstManager@example.com" />
+	<PartyContactMech partyId="MANAGER_1" contactMechId="MAN_1" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y" />
+	<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_EMAIL" partyId="MANAGER_1" contactMechId="MAN_1" fromDate="2022-02-10 00:00:00.0" />
+
+	<ContactMech contactMechId="MAN_2" contactMechTypeId="TELECOM_NUMBER" />
+	<TelecomNumber contactMechId="MAN_2" areaCode="101" contactNumber="1234567890" />
+	<PartyContactMech partyId="MANAGER_1" contactMechId="MAN_2" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y" />
+	<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_PHONE" partyId="MANAGER_1" contactMechId="MAN_2" fromDate="2022-02-10 00:00:00.0" />
+
+	<ContactMech contactMechId="MAN_3" contactMechTypeId="POSTAL_ADDRESS" />
+	<PostalAddress contactMechId="MAN_3" toName="MANAGER XYZ" attnName="ZJAA" address1="2003 Open Blvd" city="Orem" postalCode="84058" countryGeoId="USA" stateProvinceGeoId="UT" />
+	<PartyContactMech partyId="MANAGER_1" contactMechId="MAN_3" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y" />
+	<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_LOCATION" partyId="MANAGER_1" contactMechId="MAN_3" fromDate="2022-02-10 00:00:00.0" />
+
+    <!--second manager data  -->
+	<Party partyId="MANAGER_2" statusId="PARTY_ENABLED" partyTypeId="PERSON" />
+    <Person partyId="MANAGER_2" firstName="second" lastName="manager"/>
+	<PartyRole partyId="MANAGER_2" roleTypeId="MANAGER" />
+    <PartyStatus partyId="MANAGER_2" statusId="PARTY_ENABLED" statusDate="2022-02-10 12:00:00.0" />
+
+	<ContactMech contactMechId="MANA_1" contactMechTypeId="EMAIL_ADDRESS" infoString="secondManager@gmail.com" />
+	<PartyContactMech partyId="MANAGER_2" contactMechId="MANA_1" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y" />
+	<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_EMAIL" partyId="MANAGER_2" contactMechId="MANA_1" fromDate="2022-02-10 00:00:00.0" />
+
+	<ContactMech contactMechId="MANA_2" contactMechTypeId="TELECOM_NUMBER" />
+	<TelecomNumber contactMechId="MANA_2" areaCode="101" contactNumber="1212121212" />
+	<PartyContactMech partyId="MANAGER_2" contactMechId="MANA_2" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y" />
+	<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_PHONE" partyId="MANAGER_2" contactMechId="MANA_2" fromDate="2022-02-10 00:00:00.0" />
+    
+	<ContactMech contactMechId="MANA_3" contactMechTypeId="POSTAL_ADDRESS" />
+	<PostalAddress contactMechId="MANA_3" toName="MANAGER XYZ" attnName="asas" address1="2003 Open Blvd" city="Orem" postalCode="84058" countryGeoId="USA" stateProvinceGeoId="UT" />
+	<PartyContactMech partyId="MANAGER_2" contactMechId="MANA_3" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y" />
+	<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_LOCATION" partyId="MANAGER_2" contactMechId="MANA_3" fromDate="2022-02-10 00:00:00.0" />
+
+    <!-- First receiver data -->
+    <Party partyId="RECEIVER_1" statusId="PARTY_ENABLED" partyTypeId="PERSON" />
+    <Person partyId="RECEIVER_1" firstName="First" lastName="receiver"/>
+	<PartyRole partyId="RECEIVER_1" roleTypeId="RECEIVER" />
+    <PartyStatus partyId="RECEIVER_1" statusId="PARTY_ENABLED" statusDate="2022-02-10 12:00:00.0" />
+
+	<ContactMech contactMechId="RECEI_1" contactMechTypeId="EMAIL_ADDRESS" infoString="firstReceiver@gmail.com" />
+	<PartyContactMech partyId="RECEIVER_1" contactMechId="RECEI_1" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y" />
+	<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_EMAIL" partyId="RECEIVER_1" contactMechId="RECEI_1" fromDate="2022-02-10 00:00:00.0" />
+
+	<ContactMech contactMechId="RECEI_2" contactMechTypeId="TELECOM_NUMBER" />
+	<TelecomNumber contactMechId="RECEI_2" areaCode="101" contactNumber="1212121212" />
+	<PartyContactMech partyId="RECEIVER_1" contactMechId="RECEI_2" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y" />
+	<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_PHONE" partyId="RECEIVER_1" contactMechId="RECEI_2" fromDate="2022-02-10 00:00:00.0" />
+    
+	<ContactMech contactMechId="RECEI_3" contactMechTypeId="POSTAL_ADDRESS" />
+	<PostalAddress contactMechId="RECEI_3" toName="RECEIVER XYZ" attnName="asas" address1="2003 Open Blvd" city="Orem" postalCode="84058" countryGeoId="USA" stateProvinceGeoId="UT" />
+	<PartyContactMech partyId="RECEIVER_1" contactMechId="RECEI_3" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y" />
+	<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_LOCATION" partyId="RECEIVER_1" contactMechId="RECEI_3" fromDate="2022-02-10 00:00:00.0" />
+
+    <!-- Second receiver data -->
+    <Party partyId="RECEIVER_2" statusId="PARTY_ENABLED" partyTypeId="PERSON" />
+    <Person partyId="RECEIVER_2" firstName="second" lastName="receiver"/>
+	<PartyRole partyId="RECEIVER_2" roleTypeId="RECEIVER" />
+    <PartyStatus partyId="RECEIVER_2" statusId="PARTY_ENABLED" statusDate="2022-02-10 12:00:00.0" />
+
+	<ContactMech contactMechId="RECEIV_1" contactMechTypeId="EMAIL_ADDRESS" infoString="secondreceiver@gmail.com" />
+	<PartyContactMech partyId="RECEIVER_2" contactMechId="RECEIV_1" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y" />
+	<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_EMAIL" partyId="RECEIVER_2" contactMechId="RECEIV_1" fromDate="2022-02-10 00:00:00.0" />
+
+	<ContactMech contactMechId="RECEIV_2" contactMechTypeId="TELECOM_NUMBER" />
+	<TelecomNumber contactMechId="RECEIV_2" areaCode="101" contactNumber="1212121212" />
+	<PartyContactMech partyId="RECEIVER_2" contactMechId="RECEIV_2" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y" />
+	<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_PHONE" partyId="RECEIVER_2" contactMechId="RECEIV_2" fromDate="2022-02-10 00:00:00.0" />
+    
+	<ContactMech contactMechId="RECEIV_3" contactMechTypeId="POSTAL_ADDRESS" />
+	<PostalAddress contactMechId="RECEIV_3" toName="RECEIVER XYZ" attnName="asas" address1="2003 Open Blvd" city="Orem" postalCode="84058" countryGeoId="USA" stateProvinceGeoId="UT" />
+	<PartyContactMech partyId="RECEIVER_2" contactMechId="RECEIV_3" fromDate="2022-02-10 00:00:00.0" allowSolicitation="Y" />
+	<PartyContactMechPurpose contactMechPurposeTypeId="PRIMARY_LOCATION" partyId="RECEIVER_2" contactMechId="RECEIV_3" fromDate="2022-02-10 00:00:00.0" />
+
+    <!-- facility data  -->
+    <Facility facilityId="FIRST_WARE_HOUSE" facilityTypeId="WAREHOUSE" facilityName="AMOZON Store Warehouse" ownerPartyId="Company"  defaultInventoryItemTypeId="NON_SERIAL_INV_ITEM" defaultWeightUomId="WT_lb" defaultDaysToShip="25"/>
+    <Facility facilityId="SECOND_WARE_HOUSE" facilityTypeId="WAREHOUSE" facilityName="FLIPCART Store Warehouse" ownerPartyId="Company"  defaultInventoryItemTypeId="NON_SERIAL_INV_ITEM" defaultWeightUomId="WT_lb" defaultDaysToShip="25"/>
+
+
+    <!--contact information for facility first warehouse -->
+    <ContactMech contactMechId="3000" contactMechTypeId="POSTAL_ADDRESS"/>
+    <ContactMech contactMechId="3001" contactMechTypeId="TELECOM_NUMBER"/>
+    <ContactMech contactMechId="3002" contactMechTypeId="EMAIL_ADDRESS" infoString="firstwarhouse@example.com"/>
+    <PostalAddress contactMechId="3000" toName="first ware house  store" attnName="ZJAA" address1="2003 Open Blvd" city="Orem" postalCode="84058" countryGeoId="USA" stateProvinceGeoId="UT"/>
+    <TelecomNumber contactMechId="3001" areaCode="501" contactNumber="1234567890"/>
+    <FacilityContactMech facilityId="FIRST_WARE_HOUSE" contactMechId="3000" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMech facilityId="FIRST_WARE_HOUSE" contactMechId="3001" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMech facilityId="FIRST_WARE_HOUSE" contactMechId="3002" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMechPurpose facilityId="FIRST_WARE_HOUSE" contactMechId="3000" contactMechPurposeTypeId="SHIPPING_LOCATION" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMechPurpose facilityId="FIRST_WARE_HOUSE" contactMechId="3000" contactMechPurposeTypeId="SHIP_ORIG_LOCATION" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMechPurpose facilityId="FIRST_WARE_HOUSE" contactMechId="3001" contactMechPurposeTypeId="PHONE_SHIPPING" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMechPurpose facilityId="FIRST_WARE_HOUSE" contactMechId="3001" contactMechPurposeTypeId="PHONE_SHIP_ORIG" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMechPurpose facilityId="FIRST_WARE_HOUSE" contactMechId="3002" contactMechPurposeTypeId="PRIMARY_EMAIL" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityLocation facilityId="FIRST_WARE_HOUSE" locationSeqId="TLTLTLLL01" locationTypeEnumId="FLT_PICKLOC" areaId="TL" aisleId="TL" sectionId="TL" levelId="LL" positionId="01"/>
+    <FacilityLocation facilityId="FIRST_WARE_HOUSE" locationSeqId="TLTLTLLL02" locationTypeEnumId="FLT_PICKLOC" areaId="TL" aisleId="TL" sectionId="TL" levelId="LL" positionId="02"/>
+    <FacilityLocation facilityId="FIRST_WARE_HOUSE" locationSeqId="AAB2C3UL03" locationTypeEnumId="FLT_BULK" areaId="AA" aisleId="B2" sectionId="C3" levelId="UL" positionId="03"/>
+
+     <!-- contact information for facility second warehouse -->
+    <ContactMech contactMechId="4000" contactMechTypeId="POSTAL_ADDRESS"/>
+    <ContactMech contactMechId="4001" contactMechTypeId="TELECOM_NUMBER"/>
+    <ContactMech contactMechId="4002" contactMechTypeId="EMAIL_ADDRESS" infoString="secondwarhouse@example.com"/>
+    <PostalAddress contactMechId="4000" toName="second ware house  store" attnName="ZJAA" address1="2004 Open Blvd" city="Orem" postalCode="84058" countryGeoId="USA" stateProvinceGeoId="UT"/>
+    <TelecomNumber contactMechId="4001" areaCode="501" contactNumber="1244567890"/>
+    <FacilityContactMech facilityId="SECOND_WARE_HOUSE" contactMechId="4000" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMech facilityId="SECOND_WARE_HOUSE" contactMechId="4001" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMech facilityId="SECOND_WARE_HOUSE" contactMechId="4002" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMechPurpose facilityId="SECOND_WARE_HOUSE" contactMechId="4000" contactMechPurposeTypeId="SHIPPING_LOCATION" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMechPurpose facilityId="SECOND_WARE_HOUSE" contactMechId="4000" contactMechPurposeTypeId="SHIP_ORIG_LOCATION" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMechPurpose facilityId="SECOND_WARE_HOUSE" contactMechId="4001" contactMechPurposeTypeId="PHONE_SHIPPING" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMechPurpose facilityId="SECOND_WARE_HOUSE" contactMechId="4001" contactMechPurposeTypeId="PHONE_SHIP_ORIG" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityContactMechPurpose facilityId="SECOND_WARE_HOUSE" contactMechId="4002" contactMechPurposeTypeId="PRIMARY_EMAIL" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityLocation facilityId="SECOND_WARE_HOUSE" locationSeqId="TLTLTLLL01" locationTypeEnumId="FLT_PICKLOC" areaId="TL" aisleId="TL" sectionId="TL" levelId="LL" positionId="01"/>
+    <FacilityLocation facilityId="SECOND_WARE_HOUSE" locationSeqId="TLTLTLLL02" locationTypeEnumId="FLT_PICKLOC" areaId="TL" aisleId="TL" sectionId="TL" levelId="LL" positionId="02"/>
+    <FacilityLocation facilityId="SECOND_WARE_HOUSE" locationSeqId="AAB2C3UL03" locationTypeEnumId="FLT_BULK" areaId="AA" aisleId="B2" sectionId="C3" levelId="UL" positionId="03"/>
+
+    <ProductFacility productId="PROD_1" facilityId="FIRST_WARE_HOUSE" minimumStock="100" reorderQuantity="1" daysToShip="1"/>
+    <ProductFacility productId="PROD_3" facilityId="FIRST_WARE_HOUSE" minimumStock="100" reorderQuantity="5" daysToShip="1"/>
+
+    <ProductFacility productId="PROD_2" facilityId="SECOND_WARE_HOUSE" minimumStock="100" reorderQuantity="5" daysToShip="1"/>
+    <ProductFacility productId="PROD_4" facilityId="SECOND_WARE_HOUSE" minimumStock="100" reorderQuantity="5" daysToShip="1"/>
+
+    <ProductFacilityLocation productId="PROD_1" facilityId="FIRST_WARE_HOUSE" locationSeqId="TLTLTLLL01"/>
+    <ProductFacilityLocation productId="PROD_3" facilityId="FIRST_WARE_HOUSE" locationSeqId="TLTLTLLL02"/>
+    <ProductFacilityLocation productId="PROD_3" facilityId="FIRST_WARE_HOUSE" locationSeqId="AAB2C3UL03" minimumStock="100" moveQuantity="10"/>
+    
+    <ProductFacilityLocation productId="PROD_2" facilityId="SECOND_WARE_HOUSE" locationSeqId="TLTLTLLL01"/>
+    <ProductFacilityLocation productId="PROD_4" facilityId="SECOND_WARE_HOUSE" locationSeqId="TLTLTLLL02"/>
+    <ProductFacilityLocation productId="PROD_4" facilityId="SECOND_WARE_HOUSE" locationSeqId="AAB2C3UL03" minimumStock="100" moveQuantity="10"/>
+
+    <FacilityParty facilityId="FIRST_WARE_HOUSE" partyId="MANAGER_1" roleTypeId="MANAGER" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityParty facilityId="FIRST_WARE_HOUSE" partyId="RECEIVER_1" roleTypeId="RECEIVER" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityParty facilityId="SECOND_WARE_HOUSE" partyId="MANAGER_2" roleTypeId="MANAGER" fromDate="2022-02-10 00:00:00.0"/>
+    <FacilityParty facilityId="SECOND_WARE_HOUSE" partyId="RECEIVER_2" roleTypeId="RECEIVER" fromDate="2022-02-10 00:00:00.0"/>
+</entity-engine-xml>
