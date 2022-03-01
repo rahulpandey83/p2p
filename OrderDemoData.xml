@@ -1,0 +1,59 @@
+<entity-engine-xml>
+    <OrderHeader orderId="DEMO_TEST" orderTypeId="PURCHASE_ORDER" orderName="Purchase Order" salesChannelEnumId="UNKNWN_SALES_CHANNEL" orderDate="2022-02-10 12:00:00.0" entryDate="2022-02-10 12:00:00.0" statusId="ORDER_COMPLETED"  currencyUom="USD"  remainingSubTotal="180.0" grandTotal="180.0"/>
+    <OrderItem orderId="DEMO_TEST" orderItemSeqId="00001" orderItemTypeId="PRODUCT_ORDER_ITEM" productId="PROD_1" prodCatalogId="NEW_CATALOG" isPromo="N" quantity="20" selectedAmount="0.0" unitPrice="9" unitListPrice="0.0" isModifiedPrice="N" itemDescription="NIKE" statusId="ITEM_COMPLETED"/>
+    <OrderItemPriceInfo orderItemPriceInfoId="10001" orderId="DEMO_TEST" orderItemSeqId="00001" description="SupplierProduct [minimumOrderQuantity:20, lastPrice: 9]"/>
+    <OrderRole orderId="DEMO_TEST" partyId="Company" roleTypeId="BILL_TO_CUSTOMER"/>
+    <OrderRole orderId="DEMO_TEST" partyId="SUP_HONDA" roleTypeId="BILL_FROM_VENDOR"/>
+    <OrderRole orderId="DEMO_TEST" partyId="SUP_HONDA" roleTypeId="SHIP_FROM_VENDOR"/>
+    <OrderRole orderId="DEMO_TEST" partyId="SUP_HONDA" roleTypeId="SUPPLIER_AGENT"/>
+    <OrderItemShipGroup orderId="DEMO_TEST" shipGroupSeqId="00001" shipmentMethodTypeId="STANDARD" carrierPartyId="_NA_" carrierRoleTypeId="CARRIER"  facilityId="FIRST_WARE_HOUSE" contactMechId="3000" maySplit="N" isGift="N"/>
+    <OrderItemShipGroupAssoc orderId="DEMO_TEST" orderItemSeqId="00001" shipGroupSeqId="00001" quantity="20"/>
+    <OrderPaymentPreference orderPaymentPreferenceId="PAY_00001" orderId="DEMO_TEST" paymentMethodTypeId="COMPANY_CHECK"  presentFlag="N"  maxAmount="180"  statusId="PMNT_NOT_PAID" />    
+ 
+   <!--order status -->
+    <OrderStatus orderStatusId="9009" statusId="ORDER_CREATED" orderId="DEMO_TEST"/>
+    <OrderStatus orderStatusId="9010" statusId="ITEM_CREATED" orderId="DEMO_TEST" orderItemSeqId="00001"/>
+    <OrderStatus orderStatusId="9011" statusId="ITEM_APPROVED" orderId="DEMO_TEST" orderItemSeqId="00001"/>
+    <OrderStatus orderStatusId="9012" statusId="ORDER_APPROVED" orderId="DEMO_TEST" />
+    <OrderStatus orderStatusId="9013" statusId="ITEM_COMPLETED" orderId="DEMO_TEST" orderItemSeqId="00001"/>
+    <OrderStatus orderStatusId="9014" statusId="ORDER_COMPLETED" orderId="DEMO_TEST"/>
+    <OrderContactMech orderId="DEMO_TEST" contactMechPurposeTypeId="SHIPPING_LOCATION" contactMechId="3000"/>
+
+    <!-- shipment Data -->
+    <Shipment shipmentId="3000" shipmentTypeId="PURCHASE_SHIPMENT" statusId="PURCH_SHIP_RECEIVED" primaryOrderId="DEMO_TEST" primaryShipGroupSeqId="00001" estimatedShipCost="0.00" destinationFacilityId="FIRST_WARE_HOUSE" destinationContactMechId="3000" destinationTelecomNumberId="3001" partyIdFrom="SUP_HONDA"/>
+    <ShipmentItem shipmentId="3000" shipmentItemSeqId="00001" productId="PROD_1" quantity="20.000000"/>
+    <ShipmentRouteSegment shipmentId="3000" shipmentRouteSegmentId="00001" destFacilityId="FIRST_WARE_HOUSE" destContactMechId="3000" destTelecomNumberId="3001" carrierPartyId="_NA_" shipmentMethodTypeId="STANDARD" carrierServiceStatusId="SHRSCS_NOT_STARTED"/>
+    <ShipmentStatus statusId="PURCH_SHIP_CREATED" shipmentId="3000" />
+    <ShipmentStatus statusId="PURCH_SHIP_SHIPPED" shipmentId="3000" />
+    <ShipmentStatus statusId="PURCH_SHIP_RECEIVED" shipmentId="3000" />
+
+    <!-- inventory Data -->
+    <InventoryItem inventoryItemId="ITEM_1" inventoryItemTypeId="NON_SERIAL_INV_ITEM" productId="PROD_1" partyId="SUP_HONDA" ownerPartyId="Company" datetimeReceived="2022-03-1 00:00:00.000" facilityId="FIRST_WARE_HOUSE" locationSeqId="TLTLTLLL01" quantityOnHandTotal="20.000000" availableToPromiseTotal="20.000000" unitCost="9.000000" currencyUomId="USD"/>
+    <ShipmentReceipt receiptId="REC_1" inventoryItemId="ITEM_1" productId="PROD_1" shipmentId="3000" orderId="DEMO_TEST" orderItemSeqId="00001" datetimeReceived="2022-03-1 00:00:00.000" quantityAccepted="20.000000" quantityRejected="0.000000"/>
+    <InventoryItemDetail inventoryItemId="ITEM_1" inventoryItemDetailSeqId="00001" effectiveDate="2022-02-25 17:47:46.78" quantityOnHandDiff="20.000000" availableToPromiseDiff="20.000000" accountingQuantityDiff="0.000000" unitCost="9.000000" orderId="DEMO_TEST" orderItemSeqId="00001" shipmentId="3000" receiptId="REC_1"/>
+
+    <!-- Invoice Data -->
+    <Invoice invoiceId="IN_1000" invoiceTypeId="PURCHASE_INVOICE" description="Purchase Order Invoice" partyIdFrom="SUP_HONDA" partyId="Company" statusId="INVOICE_PAID" invoiceDate="2022-03-01 00:00:00.000" currencyUomId="USD"/>
+    <InvoiceItem invoiceId="IN_1000" invoiceItemSeqId="00001" invoiceItemTypeId="PINV_FPROD_ITEM" productId="PROD_1" quantity="20.000000" amount="9.000" description="BEST"/>
+    <!-- invoice status -->
+    <InvoiceStatus statusId="INVOICE_IN_PROCESS" invoiceId="IN_1000" statusDate="2022-03-01 00:00:00.000"/>
+    <InvoiceStatus statusId="INVOICE_APPROVED" invoiceId="IN_1000" statusDate="2022-03-01 00:00:00.000"/>
+    <InvoiceStatus statusId="INVOICE_READY" invoiceId="IN_1000" statusDate="2022-03-01 00:00:00.000"/>
+    <InvoiceStatus statusId="INVOICE_PAID" invoiceId="IN_1000" statusDate="2022-03-01 00:00:00.000"/>
+    <!-- invoice roles -->
+    <InvoiceRole invoiceId="IN_1000" partyId="Company" roleTypeId="BILL_TO_CUSTOMER" datetimePerformed="2022-03-01 00:00:00.000"/>
+    <InvoiceRole invoiceId="IN_1000" partyId="SUP_HONDA" roleTypeId="BILL_FROM_VENDOR" datetimePerformed="2022-03-01 00:00:00.000"/>
+    <InvoiceRole invoiceId="IN_1000" partyId="SUP_HONDA" roleTypeId="SHIP_FROM_VENDOR" datetimePerformed="2022-03-01 00:00:00.000"/>
+    <InvoiceRole invoiceId="IN_1000" partyId="SUP_HONDA" roleTypeId="SUPPLIER_AGENT" datetimePerformed="2022-03-01 00:00:00.000"/>
+
+    <!-- payment data -->
+    <Payment paymentId="PAY_00001" paymentTypeId="VENDOR_PAYMENT" paymentPreferenceId="PAY_00001" paymentMethodId="" paymentMethodTypeId="COMPANY_CHECK" partyIdFrom="Company" partyIdTo="SUP_HONDA" statusId="PMNT_NOT_PAID"  amount="180" currencyUomId="USD"/>
+    <PaymentApplication paymentApplicationId="demo11000" paymentId="PAY_00001" invoiceId="IN_1000" amountApplied="180.00"/>
+
+    <OrderItemBilling orderId="DEMO_TEST" orderItemSeqId="00001" invoiceId="IN_1000" invoiceItemSeqId="00001" shipmentReceiptId="REC_1" quantity="20.000000" amount="9.00"/>
+
+    <!-- Accounting Data -->
+    <AcctgTrans acctgTransId="9001" acctgTransTypeId="PURCHASE_INVOICE" transactionDate="2022-03-01 00:00:00.000" isPosted="Y" postedDate="2022-03-01 00:00:00.000" glFiscalTypeId="ACTUAL" partyId="SUP_HONDA" roleTypeId="BILL_FROM_VENDOR" invoiceId="IN_1000"/>
+    <AcctgTransEntry acctgTransId="9001" acctgTransEntrySeqId="00001" acctgTransEntryTypeId="_NA_" partyId="SUP_HONDA" roleTypeId="BILL_FROM_VENDOR" productId="PROD_1" glAccountId="214000" organizationPartyId="Company" amount="180.00" currencyUomId="USD" origAmount="180.00" origCurrencyUomId="USD" debitCreditFlag="D" reconcileStatusId="AES_NOT_RECONCILED"/>
+    <AcctgTransEntry acctgTransId="9001" acctgTransEntrySeqId="00002" acctgTransEntryTypeId="_NA_" partyId="SUP_HONDA" roleTypeId="BILL_FROM_VENDOR" glAccountTypeId="ACCOUNTS_PAYABLE" glAccountId="210000" organizationPartyId="Company" amount="180.00" currencyUomId="USD" origAmount="180.00" origCurrencyUomId="USD" debitCreditFlag="C" reconcileStatusId="AES_NOT_RECONCILED"/>
+</entity-engine-xml>
