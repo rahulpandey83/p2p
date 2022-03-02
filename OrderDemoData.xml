@@ -3,6 +3,7 @@
     <OrderItem orderId="DEMO_TEST" orderItemSeqId="00001" orderItemTypeId="PRODUCT_ORDER_ITEM" productId="PROD_1" prodCatalogId="NEW_CATALOG" isPromo="N" quantity="20" selectedAmount="0.0" unitPrice="9" unitListPrice="0.0" isModifiedPrice="N" itemDescription="NIKE" statusId="ITEM_COMPLETED"/>
     <OrderItemPriceInfo orderItemPriceInfoId="10001" orderId="DEMO_TEST" orderItemSeqId="00001" description="SupplierProduct [minimumOrderQuantity:20, lastPrice: 9]"/>
     <OrderRole orderId="DEMO_TEST" partyId="Company" roleTypeId="BILL_TO_CUSTOMER"/>
+    <OrderRole orderId="DEMO_TEST" partyId="SUP_HONDA" roleTypeId="SHIP_TO_CUSTOMER"/>
     <OrderRole orderId="DEMO_TEST" partyId="SUP_HONDA" roleTypeId="BILL_FROM_VENDOR"/>
     <OrderRole orderId="DEMO_TEST" partyId="SUP_HONDA" roleTypeId="SHIP_FROM_VENDOR"/>
     <OrderRole orderId="DEMO_TEST" partyId="SUP_HONDA" roleTypeId="SUPPLIER_AGENT"/>
