@@ -102,7 +102,7 @@
     <FacilityLocation facilityId="FIRST_WARE_HOUSE" locationSeqId="TLTLTLLL02" locationTypeEnumId="FLT_PICKLOC" areaId="TL" aisleId="TL" sectionId="TL" levelId="LL" positionId="02"/>
     <FacilityLocation facilityId="FIRST_WARE_HOUSE" locationSeqId="AAB2C3UL03" locationTypeEnumId="FLT_BULK" areaId="AA" aisleId="B2" sectionId="C3" levelId="UL" positionId="03"/>
 
-     <!-- contact information for facility second warehouse -->
+    <!-- contact information for facility second warehouse -->
     <ContactMech contactMechId="4000" contactMechTypeId="POSTAL_ADDRESS"/>
     <ContactMech contactMechId="4001" contactMechTypeId="TELECOM_NUMBER"/>
     <ContactMech contactMechId="4002" contactMechTypeId="EMAIL_ADDRESS" infoString="secondwarhouse@example.com"/>
