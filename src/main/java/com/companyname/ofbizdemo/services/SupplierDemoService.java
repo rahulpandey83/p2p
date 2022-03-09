@@ -1,15 +1,11 @@
 package com.companyname.ofbizdemo.services;
 
 import org.mozilla.javascript.Context;
-
-
 import org.apache.ofbiz.base.util.Debug;
-
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-
 import org.apache.ofbiz.entity.GenericEntityException;
 import org.apache.ofbiz.entity.GenericValue;
 import org.apache.ofbiz.service.DispatchContext;
@@ -55,10 +51,7 @@ public class SupplierDemoService {
 
         String groupName = (String) context.get("groupName");
         String emailAddress = (String) context.get("email");
-        String countryCode = (String) context.get("countryCode");
-        String areaCode = (String) context.get("areaCode");
         String contactNumber = (String) context.get("contactNumber");
-        String extension = (String) context.get("extension");
         String address1 = (String) context.get("address1");
         String address2 = (String) context.get("address2");
         String city = (String) context.get("city");
@@ -120,10 +113,7 @@ public class SupplierDemoService {
         processContext.put("preContactMechTypeId", preContactMechTypeId1);
         processContext.put("contactMechPurposeTypeId", contactMechPurposeTypeId1);
 
-        processContext.put("countryCode", countryCode);
-        processContext.put("areaCode", areaCode);
         processContext.put("contactNumber", contactNumber);
-        processContext.put("extension", extension);
 
         try {
             result = dispatcher.runSync("createTelecomNumber", processContext);
