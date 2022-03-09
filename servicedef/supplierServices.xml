@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/services.xsd">
+    <description>OfbizDemo Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="trainingCreateSupplier" engine="java" default-entity-name=""
+             location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="trainingCreateSupplier"
+             auth="false">
+        <description>Create a Supplier</description>
+        <auto-attributes mode="INOUT" include="pk" optional="true"/>
+        <auto-attributes mode="IN" include="nonpk" optional="true"/>
+        <attribute name="groupName" type="String" mode="IN" optional="false"/>
+        <attribute name="email" type="String" mode="IN" optional="true"/>
+        <attribute name="contactNumber" type="String" mode="IN" optional="true"/>
+        <attribute name="address1" type="String" mode="IN" optional="true"/>
+        <attribute name="address2" type="String" mode="IN" optional="true"/>
+        <attribute name="city" type="String" mode="IN" optional="true"/>
+        <attribute name="postalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="stateProvinceGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
+    </service>
+</services>
