@@ -110,15 +110,15 @@ under the License.
         <section>
             <actions>
                 <set field="titleProperty" value="PageTitleAddOfbizDemos"/>
-                <set field="headerItem" value="CreateSupplierFtl"/>
-             
+                <set field="headerItem" value="CreateSupplier"/>
+                <script location="component://ofbizDemo/groovyScripts/supplier/SupplierStateCountry.groovy"/>
             </actions>
             <widgets>
-                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                <decorator-screen name="OfbizDemoCommonDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
-                        <screenlet title="${uiLabelMap.CreateSupplierFtl}">
+                        <screenlet title="${uiLabelMap.CreateSupplier}">
                             <platform-specific>
-                                <html><html-template location="component://ofbizDemo/webapp/ofbizDemo/demo/CreateSupplier.ftl"/></html>
+                                <html><html-template location="component://ofbizDemo/template/supplier/CreateSupplier.ftl"/></html>
                             </platform-specific>
                         </screenlet>
                     </decorator-section>
