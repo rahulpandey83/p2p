@@ -49,24 +49,4 @@ under the License.
         <override name="comments" optional="true"/>
     </service>
 
-    <service name="trainingCreateSupplier" engine="java" default-entity-name=""
-             location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="trainingCreateSupplier" auth="false">
-        <description>Create a Supplier</description>
-        <auto-attributes mode="INOUT" include="pk" optional="true"/>
-        <auto-attributes mode="IN" include="nonpk" optional="true"/>
-        <attribute name="groupName" type="String" mode="IN" optional="false"/>
-        <attribute name="Email" type="String" mode="IN" optional="true"/>
-        <attribute name="countryCode" type="String" mode="IN" optional="true"/>
-        <attribute name="areaCode" type="String" mode="IN" optional="true"/>
-        <attribute name="contactNumber" type="String" mode="IN" optional="true"/>
-        <attribute name="extension" type="String" mode="IN" optional="true"/>
-        <attribute name="Address1" type="String" mode="IN" optional="true"/>
-        <attribute name="Address2" type="String" mode="IN" optional="true"/>
-        <attribute name="City" type="String" mode="IN" optional="true"/>
-        <attribute name="postalCode" type="String" mode="IN" optional="true"/>
-        <attribute name="stateProvinceGeoId" type="String" mode="IN" optional="true"/>
-        <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
-<!--        <override name="groupName" optional="false"/>-->
-
-    </service>
 </services>
