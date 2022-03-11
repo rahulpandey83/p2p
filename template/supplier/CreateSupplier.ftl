@@ -6,16 +6,16 @@
           <input type="text" name="groupName" id="groupName" class='required' maxlength="20"/>*
         </div>
     </div>
-    <div class="control-group">
+    <div class="form-group">
       <label class="control-label" for="contactNumber">${uiLabelMap.Phone}</label>
         <div class="controls">
           <input type="text" name="contactNumber" id="contactNumber" class='required' maxlength="20"/>*
         </div>
     </div>
-    <div class="control-group">
-      <label class="control-label" for="email">${uiLabelMap.Email}</label>
+    <div class="from-group">
+      <label class="control-label" for="emailAddress">${uiLabelMap.Email}</label>
         <div class="controls">
-          <input type="text" name="email" id="email" class='required' maxlength="20"/>*
+          <input type="text" name="emailAddress" id="emailAddress" class='required' maxlength="20"/>*
         </div>
     </div>
     <div class="control-group">
