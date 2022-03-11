@@ -53,8 +53,21 @@ under the License.
         <value xml:lang="en">Last Name</value>
     </property>
 
+
+    <property key="FindSupplier">
+        <value xml:lang="en">Suppliers</value>
+    </property>
+    <property key="CreateSupplier">
+        <value xml:lang="en">Create</value>
+    </property>
+    <property key="ListSupplier">
+        <value xml:lang="en">List</value>
+    </property>
+    <property key="PartyId">
+        <value xml:lang="en">Id</value>
+    </property>
     <property key="GroupName">
-        <value xml:lang="en">Group Name</value>
+        <value xml:lang="en">Supplier</value>
     </property>
     <property key="Phone">
         <value xml:lang="en">Phone</value>
@@ -63,7 +76,10 @@ under the License.
         <value xml:lang="en">Email</value>
     </property>
     <property key="Address1">
-        <value xml:lang="en">Address2</value>
+        <value xml:lang="en">Address1</value>
+    </property>
+    <property key="Address">
+        <value xml:lang="en">Address</value>
     </property>
 
     <property key="Address2">
