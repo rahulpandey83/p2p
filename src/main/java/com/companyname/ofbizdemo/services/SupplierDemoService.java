@@ -1,11 +1,15 @@
 package com.companyname.ofbizdemo.services;
 
+import org.apache.calcite.sql.dialect.PrestoSqlDialect;
+import org.apache.cxf.helpers.ServiceUtils;
 import org.mozilla.javascript.Context;
 import org.apache.ofbiz.base.util.Debug;
+
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+
 import org.apache.ofbiz.entity.GenericEntityException;
 import org.apache.ofbiz.entity.GenericValue;
 import org.apache.ofbiz.service.DispatchContext;
@@ -48,7 +52,6 @@ public class SupplierDemoService {
         Timestamp now = UtilDateTime.nowTimestamp();
         String partyId = null;
         Locale locale = (Locale) context.get("locale");
-
         String groupName = (String) context.get("groupName");
         String emailAddress = (String) context.get("email");
         String contactNumber = (String) context.get("contactNumber");
@@ -59,113 +62,103 @@ public class SupplierDemoService {
         String stateProvinceGeoId = (String) context.get("stateProvinceGeoId");
         String countryGeoId = (String) context.get("countryGeoId");
 
-        Map<String, Object> processContext = new HashMap<>(context);
-        Debug.log("=====================" + processContext);
-        processContext.put("groupName", groupName);
-
         try {
-            result = dispatcher.runSync("createPartyGroup", processContext);
+            Map<String, Object> serviceCtx = ctx.makeValidContext("createPartyGroup", ModelService.IN_PARAM, context);
+            Debug.log("=====================" + serviceCtx);
+            serviceCtx.put("userLogin", userLogin);
+
+
+            result = dispatcher.runSync("createPartyGroup", serviceCtx);
+            if (ServiceUtil.isError(result)) {
+                Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
+                return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
+            }
+
             partyId = String.valueOf(result.get("partyId"));
             Debug.log("=====================" + partyId);
+
+            serviceCtx.put("partyId", partyId);
+            String partyRole = "SUPPLIER";
+            serviceCtx.put("roleTypeId", partyRole);
+
+            result = dispatcher.runSync("createPartyRole", serviceCtx);
+
             if (ServiceUtil.isError(result)) {
+                Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
+                return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
+            }
+            serviceCtx = ctx.makeValidContext("createPartyRelationship", ModelService.IN_PARAM, context);
+            String partyIdFrom = "Company";
+            String roleTypeIdFrom = "INTERNAL_ORGANIZATIO";
+            String roleTypeIdTo = "SUPPLIER";
+            String partyRelationshipTypeId = "SUPPLIER_REL";
+
+
+            serviceCtx.put("partyIdTo", partyId);
+            serviceCtx.put("partyIdFrom", partyIdFrom);
+            serviceCtx.put("roleTypeIdFrom", roleTypeIdFrom);
+            serviceCtx.put("roleTypeIdTo", roleTypeIdTo);
+            serviceCtx.put("partyRelationshipTypeId", partyRelationshipTypeId);
+
+            result = dispatcher.runSync("createPartyRelationship", serviceCtx);
+
+            if (ServiceUtil.isError(result)) {
+                Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
                 return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
             }
 
-        } catch (GenericServiceException e) {
 
-        }
-        String preContactMechTypeId = "EMAIL_ADDRESS";
-        String contactMechTypeId = "EMAIL_ADDRESS";
-        String contactMechPurposeTypeId = "PRIMARY_EMAIL";
-        processContext.put("emailAddress", emailAddress);
-        processContext.put("contactMechTypeId", contactMechTypeId);
-        processContext.put("partyId", partyId);
-        processContext.put("preContactMechTypeId", preContactMechTypeId);
-        processContext.put("contactMechPurposeTypeId", contactMechPurposeTypeId);
+            serviceCtx = ctx.makeValidContext("createPartyEmailAddress", ModelService.IN_PARAM, context);
 
-        try {
-            result = dispatcher.runSync("createEmailAddress", processContext);
+            String preContactMechTypeId = "EMAIL_ADDRESS";
+            String contactMechTypeId = "EMAIL_ADDRESS";
+            String contactMechPurposeTypeId = "PRIMARY_EMAIL";
+
+            serviceCtx.put("contactMechTypeId", contactMechTypeId);
+            serviceCtx.put("partyId", partyId);
+            serviceCtx.put("preContactMechTypeId", preContactMechTypeId);
+            serviceCtx.put("contactMechPurposeTypeId", contactMechPurposeTypeId);
+
+
+            result = dispatcher.runSync("createPartyEmailAddress", serviceCtx);
 
             if (ServiceUtil.isError(result)) {
+                Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
                 return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
             }
 
-        } catch (GenericServiceException e) {
+            serviceCtx = ctx.makeValidContext("createPartyTelecomNumber", ModelService.IN_PARAM, context);
 
-        }
+            String preContactMechTypeId1 = "TELECOM_NUMBER";
+            String contactMechTypeId1 = "TELECOM_NUMBER";
+            String contactMechPurposeTypeId1 = "PRIMARY_PHONE";
 
-        try {
-            result = dispatcher.runSync("createPartyEmailAddress", processContext);
+            serviceCtx.put("partyId", partyId);
+            serviceCtx.put("contactMechTypeId", contactMechTypeId1);
+            serviceCtx.put("preContactMechTypeId", preContactMechTypeId1);
+            serviceCtx.put("contactMechPurposeTypeId", contactMechPurposeTypeId1);
+
+            result = dispatcher.runSync("createPartyTelecomNumber", serviceCtx);
 
             if (ServiceUtil.isError(result)) {
+                Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
                 return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
             }
 
-        } catch (GenericServiceException e) {
+            serviceCtx = ctx.makeValidContext("createPartyPostalAddress", ModelService.IN_PARAM, context);
 
-        }
+            String preContactMechTypeId2 = "POSTAL_ADDRESS";
+            String contactMechTypeId2 = "POSTAL_ADDRESS";
+            String contactMechPurposeTypeId2 = "PRIMARY_LOCATION";
+            serviceCtx.put("partyId", partyId);
+            serviceCtx.put("contactMechTypeId", contactMechTypeId2);
+            serviceCtx.put("preContactMechTypeId", preContactMechTypeId2);
+            serviceCtx.put("contactMechPurposeTypeId", contactMechPurposeTypeId2);
 
-        String preContactMechTypeId1 = "TELECOM_NUMBER";
-        String contactMechTypeId1 = "TELECOM_NUMBER";
-        String contactMechPurposeTypeId1 = "PRIMARY_PHONE";
-
-        processContext.put("contactMechTypeId", contactMechTypeId1);
-        processContext.put("preContactMechTypeId", preContactMechTypeId1);
-        processContext.put("contactMechPurposeTypeId", contactMechPurposeTypeId1);
-
-        processContext.put("contactNumber", contactNumber);
-
-        try {
-            result = dispatcher.runSync("createTelecomNumber", processContext);
+            result = dispatcher.runSync("createPartyPostalAddress", serviceCtx);
 
             if (ServiceUtil.isError(result)) {
-                return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
-            }
-
-        } catch (GenericServiceException e) {
-
-        }
-
-        try {
-            result = dispatcher.runSync("createPartyTelecomNumber", processContext);
-
-            if (ServiceUtil.isError(result)) {
-                return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
-            }
-
-        } catch (GenericServiceException e) {
-
-        }
-
-        String preContactMechTypeId2 = "POSTAL_ADDRESS";
-        String contactMechTypeId2 = "POSTAL_ADDRESS";
-        String contactMechPurposeTypeId2 = "PRIMARY_LOCATION";
-
-        processContext.put("contactMechTypeId", contactMechTypeId2);
-        processContext.put("preContactMechTypeId", preContactMechTypeId2);
-        processContext.put("contactMechPurposeTypeId", contactMechPurposeTypeId2);
-        processContext.put("address1", address1);
-        processContext.put("address2", address2);
-        processContext.put("stateProvinceGeoId", stateProvinceGeoId);
-        processContext.put("postalCode", postalCode);
-        processContext.put("countryGeoId", countryGeoId);
-        processContext.put("city", city);
-
-        try {
-            result = dispatcher.runSync("createPostalAddress", processContext);
-
-            if (ServiceUtil.isError(result)) {
-                return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
-            }
-
-        } catch (GenericServiceException e) {
-
-        }
-
-        try {
-            result = dispatcher.runSync("createPartyPostalAddress", processContext);
-
-            if (ServiceUtil.isError(result)) {
+                Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
                 return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
             }
 
@@ -173,7 +166,6 @@ public class SupplierDemoService {
 
         }
 
-        processContext.clear();
 
         result2.put(ModelService.RESPONSE_MESSAGE, ModelService.RESPOND_SUCCESS);
         return result2;

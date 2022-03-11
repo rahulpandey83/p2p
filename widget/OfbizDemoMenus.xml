@@ -27,5 +27,6 @@ under the License.
         <menu-item name="findOfbizDemo" title="${uiLabelMap.OfbizDemoFind}"><link target="FindOfbizDemo"/></menu-item>
         <menu-item name="addOfbizDemoFtl" title="${uiLabelMap.OfbizDemoAddFtl}"><link target="AddOfbizDemoFtl"/></menu-item>
         <menu-item name="AddSupplierFtl" title="${uiLabelMap.AddSupplierFtl}"><link target="CreateSupplier"/></menu-item>
+        <menu-item name="FindSupplierFtl" title="${uiLabelMap.FindSupplierFtl}"><link target="FindSupplier"/></menu-item>
     </menu>
 </menus>
