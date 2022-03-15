@@ -2,7 +2,7 @@
   <div class="container">
     <div class="panel panel-default">
       <div class="panel-heading">${uiLabelMap.FindSupplier}
-        <span class="pull-right"><a class="btn btn-success p3" href="<@ofbizUrl>CreateSupplier</@ofbizUrl>">Create</a></span>
+        <span class="pull-right"><a class="btn  btn-primary p3" href="<@ofbizUrl>CreateSupplier</@ofbizUrl>">Create</a></span>
       </div>
       <div class="panel-body">
         <form id="FindSupplier" method="post" action="<@ofbizUrl>FindSupplier</@ofbizUrl>" class="form-horizontal">
@@ -15,6 +15,36 @@
           </div>
         </form>
       </div>
+      <div class="panel-body">
+        <#if supplierList?has_content>
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th>${uiLabelMap.PartyId}</th>
+              <th>${uiLabelMap.SupplierName}</th>
+              <th>${uiLabelMap.Phone}</th>
+              <th>${uiLabelMap.Email}</th>
+              <th>${uiLabelMap.Address}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <#list supplierList as supplierList>
+              <tr>
+                <td><a href="<@ofbizUrl>ViewProfile</@ofbizUrl>?partyId=${supplierList.partyId!}">${supplierList.partyId!}</a></td>
+                <td> ${supplierList.groupName!"-"}</td>
+                <td> ${supplierList.contactNumber!"-"}</td>
+                <td> ${supplierList.infoString!"-"}</td>
+                <td> ${supplierList.address1!}${supplierList.address2!"-"}
+                ${supplierList.city!"-"}
+                ${supplierList.postalCode!"-"}
+                ${supplierList.stateGeoName!"-"}
+                ${supplierList.countryGeoName!"-"}</td>
+              </tr>
+            </#list>
+          </tbody>
+        </table>
+      </#if>
+    </div>
     </div>
   </div>
 </div>

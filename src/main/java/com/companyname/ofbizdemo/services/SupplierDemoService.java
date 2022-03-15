@@ -51,16 +51,6 @@ public class SupplierDemoService {
         GenericValue userLogin = (GenericValue) context.get("userLogin");
         Timestamp now = UtilDateTime.nowTimestamp();
         String partyId = null;
-        Locale locale = (Locale) context.get("locale");
-        String groupName = (String) context.get("groupName");
-        String emailAddress = (String) context.get("email");
-        String contactNumber = (String) context.get("contactNumber");
-        String address1 = (String) context.get("address1");
-        String address2 = (String) context.get("address2");
-        String city = (String) context.get("city");
-        String postalCode = (String) context.get("postalCode");
-        String stateProvinceGeoId = (String) context.get("stateProvinceGeoId");
-        String countryGeoId = (String) context.get("countryGeoId");
 
         try {
             Map<String, Object> serviceCtx = ctx.makeValidContext("createPartyGroup", ModelService.IN_PARAM, context);
@@ -170,5 +160,77 @@ public class SupplierDemoService {
         result2.put(ModelService.RESPONSE_MESSAGE, ModelService.RESPOND_SUCCESS);
         return result2;
     }
+
+    public static Map<String, Object> EditSupplierProfile(DispatchContext ctx, Map<String, ? extends Object> context) {
+        Map<String, Object> result = new HashMap<>();
+        Map<String, Object> result2 = ServiceUtil.returnSuccess();
+        Delegator delegator = ctx.getDelegator();
+        LocalDispatcher dispatcher = ctx.getDispatcher();
+        GenericValue userLogin = (GenericValue) context.get("userLogin");
+        Timestamp now = UtilDateTime.nowTimestamp();
+        Debug.log("=====================rahul" + context);
+
+        try {
+            Map<String, Object> serviceCtx = ctx.makeValidContext("updatePartyGroup", ModelService.IN_PARAM, context);
+            result = dispatcher.runSync("updatePartyGroup", serviceCtx);
+            if (ServiceUtil.isError(result)) {
+                Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
+                return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
+            }
+
+            serviceCtx = ctx.makeValidContext("updatePartyEmailAddress", ModelService.IN_PARAM, context);
+            serviceCtx.put("contactMechId", (String) context.get("emailContactMechId"));
+            result = dispatcher.runSync("updatePartyEmailAddress", serviceCtx);
+            if (ServiceUtil.isError(result)) {
+                Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
+                return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
+            }
+
+            serviceCtx = ctx.makeValidContext("updatePartyTelecomNumber", ModelService.IN_PARAM, context);
+            serviceCtx.put("contactMechId", (String) context.get("phoneContactMechId"));
+            result = dispatcher.runSync("updatePartyTelecomNumber", serviceCtx);
+            if (ServiceUtil.isError(result)) {
+                Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
+                return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
+            }
+
+
+        } catch (GenericServiceException e) {
+            Debug.logError(e, MODULE);
+            return ServiceUtil.returnError(e.getMessage());
+
+        }
+
+        return ServiceUtil.returnSuccess();
+    }
+
+    public static Map<String, Object> EditSupplierAddress(DispatchContext ctx, Map<String, ? extends Object> context) {
+        Map<String, Object> result = new HashMap<>();
+        Map<String, Object> result2 = ServiceUtil.returnSuccess();
+        Delegator delegator = ctx.getDelegator();
+        LocalDispatcher dispatcher = ctx.getDispatcher();
+        GenericValue userLogin = (GenericValue) context.get("userLogin");
+        Timestamp now = UtilDateTime.nowTimestamp();
+        try {
+            Map<String, Object> serviceCtx = ctx.makeValidContext("updatePartyPostalAddress", ModelService.IN_PARAM, context);
+            Debug.log("=====================" + serviceCtx);
+            serviceCtx.put("userLogin", userLogin);
+
+
+            result = dispatcher.runSync("updatePartyPostalAddress", serviceCtx);
+            if (ServiceUtil.isError(result)) {
+                Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
+                return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
+            }
+
+        } catch (GenericServiceException e) {
+
+        }
+
+
+        result2.put(ModelService.RESPONSE_MESSAGE, ModelService.RESPOND_SUCCESS);
+        return result2;
+    }
+
 
 }

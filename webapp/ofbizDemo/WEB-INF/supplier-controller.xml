@@ -22,6 +22,36 @@
         <security https="true" auth="true"/>
         <response name="success" type="view" value="FindSupplier"/>
     </request-map>
+    <request-map uri="ViewProfile">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="ViewProfile"/>
+    </request-map>
+    <request-map uri="EditProfile">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="EditProfile"/>
+    </request-map>
+    <request-map uri="EditSupplierProfile">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="editSupplierProfile"/>
+        <response name="success" type="request-redirect" value="ViewProfile">
+            <redirect-parameter name="partyId"/>
+        </response>
+        <response name="error" type="request-redirect" value="ViewProfile">
+            <redirect-parameter name="partyId"/>
+        </response>
+    </request-map>
+
+    <request-map uri="EditAddress">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="EditAddress"/>
+    </request-map>
+
+    <request-map uri="EditSupplierAddress">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="editSupplierAddress"/>
+        <response name="success" type="view" value="ViewProfile"/>
+        <response name="error" type="view" value="ViewProfile"/>
+    </request-map>
     <!-- Request Mappings -->
     <request-map uri="main"><security https="true" auth="true"/><response name="success" type="view" value="main"/></request-map>
 
@@ -32,6 +62,16 @@
     <!--View Mapping-->
     <view-map name="FindSupplier" type="screen"
               page="component://ofbizDemo/widget/SupplierScreen.xml#FindSupplier"/>
+
+    <view-map name="ViewProfile" type="screen"
+              page="component://ofbizDemo/widget/SupplierScreen.xml#ViewProfile"/>
+
+    <view-map name="EditProfile" type="screen"
+              page="component://ofbizDemo/widget/SupplierScreen.xml#EditProfile"/>
+
+    <view-map name="EditAddress" type="screen"
+              page="component://ofbizDemo/widget/SupplierScreen.xml#EditAddress"/>
+
 
     <!-- View Mappings -->
     <view-map name="main" type="screen" page="component://ofbizDemo/widget/OfbizDemoScreens.xml#main"/>

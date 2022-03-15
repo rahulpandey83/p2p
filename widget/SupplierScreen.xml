@@ -33,14 +33,12 @@ under the License.
             <widgets>
                 <decorator-screen name="OfbizDemoCommonDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
-                        <screenlet title="${uiLabelMap.CreateSupplier}">
-                            <platform-specific>
-                                <html>
-                                    <html-template
-                                            location="component://ofbizDemo/template/supplier/CreateSupplier.ftl"/>
-                                </html>
-                            </platform-specific>
-                        </screenlet>
+                        <platform-specific>
+                            <html>
+                                <html-template
+                                        location="component://ofbizDemo/template/supplier/CreateSupplier.ftl"/>
+                            </html>
+                        </platform-specific>
                     </decorator-section>
                 </decorator-screen>
             </widgets>
@@ -57,16 +55,75 @@ under the License.
             <widgets>
                 <decorator-screen name="OfbizDemoCommonDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
-                            <platform-specific>
-                                <html>
-                                    <html-template location="component://ofbizDemo/template/supplier/FindSupplier.ftl"/>
-                                </html>
-                            </platform-specific>
-                            <platform-specific>
-                                <html>
-                                    <html-template location="component://ofbizDemo/template/supplier/ListSupplier.ftl"/>
-                                </html>
-                            </platform-specific>
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://ofbizDemo/template/supplier/FindSupplier.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="ViewProfile">
+        <section>
+            <actions>
+                <set field="titleProperty" value="view"/>
+                <set field="headerItem" value="ViewProfiler"/>
+                <script location="component://ofbizDemo/groovyScripts/supplier/ViewSupplier.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="OfbizDemoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://ofbizDemo/template/supplier/ViewProfile.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditProfile">
+        <section>
+            <actions>
+                <set field="titleProperty" value="view"/>
+                <set field="headerItem" value="EditProfiler"/>
+                <script location="component://ofbizDemo/groovyScripts/supplier/ViewSupplier.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="OfbizDemoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://ofbizDemo/template/supplier/EditProfile.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditAddress">
+        <section>
+            <actions>
+                <set field="titleProperty" value="view"/>
+                <set field="headerItem" value="EditAddress"/>
+                <script location="component://ofbizDemo/groovyScripts/supplier/ViewSupplier.groovy"/>
+                <script location="component://ofbizDemo/groovyScripts/supplier/SupplierStateCountry.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="OfbizDemoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://ofbizDemo/template/supplier/EditAddress.ftl"/>
+                            </html>
+                        </platform-specific>
                     </decorator-section>
                 </decorator-screen>
             </widgets>

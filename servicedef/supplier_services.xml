@@ -19,4 +19,30 @@
         <attribute name="stateProvinceGeoId" type="String" mode="IN" optional="true"/>
         <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
     </service>
+
+    <service name="editSupplierProfile" engine="java" default-entity-name=""
+             location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="EditSupplierProfile"
+             auth="false">
+        <description>Create a Supplier</description>
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+        <attribute name="groupName" type="String" mode="IN" optional="true"/>
+        <attribute name="emailAddress" type="String" mode="IN" optional="true"/>
+        <attribute name="emailContactMechId" type="String" mode="IN" optional="true"/>
+        <attribute name="contactNumber" type="String" mode="IN" optional="true"/>
+        <attribute name="phoneContactMechId" type="String" mode="IN" optional="true"/>
+    </service>
+
+    <service name="editSupplierAddress" engine="java" default-entity-name=""
+             location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="EditSupplierAddress"
+             auth="false">
+        <description>Create a Supplier</description>
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+        <attribute name="contactMechId" type="String" mode="IN" optional="true"/>
+        <attribute name="address1" type="String" mode="IN" optional="true"/>
+        <attribute name="address2" type="String" mode="IN" optional="true"/>
+        <attribute name="city" type="String" mode="IN" optional="true"/>
+        <attribute name="postalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="stateProvinceGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
+    </service>
 </services>
