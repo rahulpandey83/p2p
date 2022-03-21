@@ -5,7 +5,7 @@
     <vendor></vendor>
     <version>1.0</version>
 
-    <service name="trainingCreateSupplier" engine="java" default-entity-name=""
+    <service name="trainingCreateSupplier" engine="java"
              location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="trainingCreateSupplier"
              auth="true">
         <description>Create a Supplier</description>
@@ -20,10 +20,10 @@
         <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
     </service>
 
-    <service name="trainingUpdateSupplierDetail" engine="java" default-entity-name=""
+    <service name="trainingUpdateSupplierDetail" engine="java"
              location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="trainingUpdateSupplierDetail"
              auth="true">
-        <description>Create a Supplier</description>
+        <description>Update a Supplier</description>
         <attribute name="partyId" type="String" mode="IN" optional="false"/>
         <attribute name="groupName" type="String" mode="IN" optional="true"/>
         <attribute name="emailAddress" type="String" mode="IN" optional="true"/>
@@ -32,10 +32,10 @@
         <attribute name="phoneContactMechId" type="String" mode="IN" optional="true"/>
     </service>
 
-    <service name="trainingUpdateSupplierPostalAddress" engine="java" default-entity-name=""
+    <service name="trainingUpdateSupplierPostalAddress" engine="java"
              location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="trainingUpdateSupplierPostalAddress"
              auth="true">
-        <description>Create a Supplier</description>
+        <description>Update a Supplier</description>
         <attribute name="partyId" type="String" mode="IN" optional="false"/>
         <attribute name="contactMechId" type="String" mode="IN" optional="true"/>
         <attribute name="address1" type="String" mode="IN" optional="true"/>
