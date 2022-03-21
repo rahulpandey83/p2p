@@ -15,7 +15,7 @@
             <dt>${uiLabelMap.CommonEmail} -</dt>
             <dd>${supplierList.infoString!"-"}</dd>
           </dl>
-          <span class="pull-left"><a class="btn  btn-primary p3" href="<@ofbizUrl>EditProfile</@ofbizUrl>?partyId=${supplierList.partyId!}">Edit</a></span>
+          <span class="pull-left"><a class="btn  btn-primary p3" href="<@ofbizUrl>UpdateSupplierDetail</@ofbizUrl>?partyId=${supplierList.partyId!}">Edit</a></span>
         </#list>
       </#if>
     </div>
@@ -39,7 +39,7 @@
             <dt>${uiLabelMap.CommonCountry} -</dt>
             <dd>${supplierList.countryGeoName!"-"}</dd>
           </dl>
-          <span class=""><a class="btn  btn-primary p3" href="<@ofbizUrl>EditAddress</@ofbizUrl>?partyId=${supplierList.partyId!}">Edit</a></span>
+          <span class=""><a class="btn  btn-primary p3" href="<@ofbizUrl>UpdateSupplierPostalAddress</@ofbizUrl>?partyId=${supplierList.partyId!}">Edit</a></span>
         </#list>
       </#if>
     </div>

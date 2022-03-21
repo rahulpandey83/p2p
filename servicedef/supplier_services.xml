@@ -7,7 +7,7 @@
 
     <service name="trainingCreateSupplier" engine="java" default-entity-name=""
              location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="trainingCreateSupplier"
-             auth="false">
+             auth="true">
         <description>Create a Supplier</description>
         <attribute name="groupName" type="String" mode="IN" optional="false"/>
         <attribute name="emailAddress" type="String" mode="IN" optional="true"/>
@@ -20,9 +20,9 @@
         <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
     </service>
 
-    <service name="editSupplierProfile" engine="java" default-entity-name=""
-             location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="EditSupplierProfile"
-             auth="false">
+    <service name="trainingUpdateSupplierDetail" engine="java" default-entity-name=""
+             location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="trainingUpdateSupplierDetail"
+             auth="true">
         <description>Create a Supplier</description>
         <attribute name="partyId" type="String" mode="IN" optional="false"/>
         <attribute name="groupName" type="String" mode="IN" optional="true"/>
@@ -32,9 +32,9 @@
         <attribute name="phoneContactMechId" type="String" mode="IN" optional="true"/>
     </service>
 
-    <service name="editSupplierAddress" engine="java" default-entity-name=""
-             location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="EditSupplierAddress"
-             auth="false">
+    <service name="trainingUpdateSupplierPostalAddress" engine="java" default-entity-name=""
+             location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="trainingUpdateSupplierPostalAddress"
+             auth="true">
         <description>Create a Supplier</description>
         <attribute name="partyId" type="String" mode="IN" optional="false"/>
         <attribute name="contactMechId" type="String" mode="IN" optional="true"/>

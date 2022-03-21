@@ -1,15 +1,15 @@
 package com.companyname.ofbizdemo.services;
 
-import org.apache.calcite.sql.dialect.PrestoSqlDialect;
-import org.apache.cxf.helpers.ServiceUtils;
-import org.mozilla.javascript.Context;
 import org.apache.ofbiz.base.util.Debug;
 
+import java.util.LinkedList;
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.List;
 
+import org.apache.ofbiz.entity.model.DynamicViewEntity;
 import org.apache.ofbiz.entity.GenericEntityException;
 import org.apache.ofbiz.entity.GenericValue;
 import org.apache.ofbiz.service.DispatchContext;
@@ -36,6 +36,35 @@ import org.apache.ofbiz.service.DispatchContext;
 import org.apache.ofbiz.service.GenericServiceException;
 import org.apache.ofbiz.service.LocalDispatcher;
 import org.apache.ofbiz.service.ModelService;
+import org.apache.ofbiz.base.util.Debug;
+import org.apache.ofbiz.base.util.UtilDateTime;
+import org.apache.ofbiz.base.util.UtilMisc;
+import org.apache.ofbiz.base.util.UtilProperties;
+import org.apache.ofbiz.base.util.UtilValidate;
+import org.apache.ofbiz.common.KeywordSearchUtil;
+import org.apache.ofbiz.entity.Delegator;
+import org.apache.ofbiz.entity.GenericDelegator;
+import org.apache.ofbiz.entity.GenericEntityException;
+import org.apache.ofbiz.entity.GenericValue;
+import org.apache.ofbiz.entity.condition.EntityComparisonOperator;
+import org.apache.ofbiz.entity.condition.EntityCondition;
+import org.apache.ofbiz.entity.condition.EntityConditionParam;
+import org.apache.ofbiz.entity.condition.EntityConditionSubSelect;
+import org.apache.ofbiz.entity.condition.EntityConditionValue;
+import org.apache.ofbiz.entity.condition.EntityOperator;
+import org.apache.ofbiz.entity.config.model.EntityConfig;
+import org.apache.ofbiz.entity.model.DynamicViewEntity;
+import org.apache.ofbiz.entity.model.ModelKeyMap;
+import org.apache.ofbiz.entity.model.ModelViewEntity.ComplexAlias;
+import org.apache.ofbiz.entity.model.ModelViewEntity.ComplexAliasField;
+import org.apache.ofbiz.entity.transaction.GenericTransactionException;
+import org.apache.ofbiz.entity.transaction.TransactionUtil;
+import org.apache.ofbiz.entity.util.EntityListIterator;
+import org.apache.ofbiz.entity.util.EntityQuery;
+import org.apache.ofbiz.entity.util.EntityUtil;
+import org.apache.ofbiz.party.party.PartyHelper;
+import org.apache.ofbiz.product.category.CategoryContentWrapper;
+import org.apache.ofbiz.service.LocalDispatcher;
 
 
 public class SupplierDemoService {
@@ -45,19 +74,12 @@ public class SupplierDemoService {
 
     public static Map<String, Object> trainingCreateSupplier(DispatchContext ctx, Map<String, ? extends Object> context) {
         Map<String, Object> result = new HashMap<>();
-        Map<String, Object> result2 = ServiceUtil.returnSuccess();
-        Delegator delegator = ctx.getDelegator();
         LocalDispatcher dispatcher = ctx.getDispatcher();
-        GenericValue userLogin = (GenericValue) context.get("userLogin");
-        Timestamp now = UtilDateTime.nowTimestamp();
         String partyId = null;
 
         try {
+
             Map<String, Object> serviceCtx = ctx.makeValidContext("createPartyGroup", ModelService.IN_PARAM, context);
-            Debug.log("=====================" + serviceCtx);
-            serviceCtx.put("userLogin", userLogin);
-
-
             result = dispatcher.runSync("createPartyGroup", serviceCtx);
             if (ServiceUtil.isError(result)) {
                 Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
@@ -65,24 +87,22 @@ public class SupplierDemoService {
             }
 
             partyId = String.valueOf(result.get("partyId"));
-            Debug.log("=====================" + partyId);
 
             serviceCtx.put("partyId", partyId);
             String partyRole = "SUPPLIER";
             serviceCtx.put("roleTypeId", partyRole);
 
             result = dispatcher.runSync("createPartyRole", serviceCtx);
-
             if (ServiceUtil.isError(result)) {
                 Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
                 return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
             }
+
             serviceCtx = ctx.makeValidContext("createPartyRelationship", ModelService.IN_PARAM, context);
             String partyIdFrom = "Company";
             String roleTypeIdFrom = "INTERNAL_ORGANIZATIO";
             String roleTypeIdTo = "SUPPLIER";
             String partyRelationshipTypeId = "SUPPLIER_REL";
-
 
             serviceCtx.put("partyIdTo", partyId);
             serviceCtx.put("partyIdFrom", partyIdFrom);
@@ -91,27 +111,24 @@ public class SupplierDemoService {
             serviceCtx.put("partyRelationshipTypeId", partyRelationshipTypeId);
 
             result = dispatcher.runSync("createPartyRelationship", serviceCtx);
-
             if (ServiceUtil.isError(result)) {
                 Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
                 return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
             }
 
-
             serviceCtx = ctx.makeValidContext("createPartyEmailAddress", ModelService.IN_PARAM, context);
 
-            String preContactMechTypeId = "EMAIL_ADDRESS";
-            String contactMechTypeId = "EMAIL_ADDRESS";
-            String contactMechPurposeTypeId = "PRIMARY_EMAIL";
+            String emailPreContactMechTypeId = "EMAIL_ADDRESS";
+            String emailContactMechTypeId = "EMAIL_ADDRESS";
+            String emailContactMechPurposeTypeId = "PRIMARY_EMAIL";
 
-            serviceCtx.put("contactMechTypeId", contactMechTypeId);
+            serviceCtx.put("contactMechTypeId", emailContactMechTypeId);
             serviceCtx.put("partyId", partyId);
-            serviceCtx.put("preContactMechTypeId", preContactMechTypeId);
-            serviceCtx.put("contactMechPurposeTypeId", contactMechPurposeTypeId);
+            serviceCtx.put("preContactMechTypeId", emailPreContactMechTypeId);
+            serviceCtx.put("contactMechPurposeTypeId", emailContactMechPurposeTypeId);
 
 
             result = dispatcher.runSync("createPartyEmailAddress", serviceCtx);
-
             if (ServiceUtil.isError(result)) {
                 Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
                 return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
@@ -119,17 +136,16 @@ public class SupplierDemoService {
 
             serviceCtx = ctx.makeValidContext("createPartyTelecomNumber", ModelService.IN_PARAM, context);
 
-            String preContactMechTypeId1 = "TELECOM_NUMBER";
-            String contactMechTypeId1 = "TELECOM_NUMBER";
-            String contactMechPurposeTypeId1 = "PRIMARY_PHONE";
+            String telecomPreContactMechTypeId = "TELECOM_NUMBER";
+            String telecomContactMechTypeId = "TELECOM_NUMBER";
+            String telecomContactMechPurposeTypeId = "PRIMARY_PHONE";
 
             serviceCtx.put("partyId", partyId);
-            serviceCtx.put("contactMechTypeId", contactMechTypeId1);
-            serviceCtx.put("preContactMechTypeId", preContactMechTypeId1);
-            serviceCtx.put("contactMechPurposeTypeId", contactMechPurposeTypeId1);
+            serviceCtx.put("contactMechTypeId", telecomContactMechTypeId);
+            serviceCtx.put("preContactMechTypeId", telecomPreContactMechTypeId);
+            serviceCtx.put("contactMechPurposeTypeId", telecomContactMechPurposeTypeId);
 
             result = dispatcher.runSync("createPartyTelecomNumber", serviceCtx);
-
             if (ServiceUtil.isError(result)) {
                 Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
                 return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
@@ -137,38 +153,32 @@ public class SupplierDemoService {
 
             serviceCtx = ctx.makeValidContext("createPartyPostalAddress", ModelService.IN_PARAM, context);
 
-            String preContactMechTypeId2 = "POSTAL_ADDRESS";
-            String contactMechTypeId2 = "POSTAL_ADDRESS";
-            String contactMechPurposeTypeId2 = "PRIMARY_LOCATION";
+            String addressPreContactMechTypeId = "POSTAL_ADDRESS";
+            String addressContactMechTypeId = "POSTAL_ADDRESS";
+            String addressContactMechPurposeTypeId = "PRIMARY_LOCATION";
+
             serviceCtx.put("partyId", partyId);
-            serviceCtx.put("contactMechTypeId", contactMechTypeId2);
-            serviceCtx.put("preContactMechTypeId", preContactMechTypeId2);
-            serviceCtx.put("contactMechPurposeTypeId", contactMechPurposeTypeId2);
+            serviceCtx.put("contactMechTypeId", addressContactMechTypeId);
+            serviceCtx.put("preContactMechTypeId", addressPreContactMechTypeId);
+            serviceCtx.put("contactMechPurposeTypeId", addressContactMechPurposeTypeId);
 
             result = dispatcher.runSync("createPartyPostalAddress", serviceCtx);
-
             if (ServiceUtil.isError(result)) {
                 Debug.logError(ServiceUtil.getErrorMessage(result), MODULE);
                 return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
             }
 
         } catch (GenericServiceException e) {
+            Debug.logError(e, MODULE);
+            return ServiceUtil.returnError(e.getMessage());
 
         }
-
-
-        result2.put(ModelService.RESPONSE_MESSAGE, ModelService.RESPOND_SUCCESS);
-        return result2;
+        return ServiceUtil.returnSuccess();
     }
 
-    public static Map<String, Object> EditSupplierProfile(DispatchContext ctx, Map<String, ? extends Object> context) {
+    public static Map<String, Object> trainingUpdateSupplierDetail(DispatchContext ctx, Map<String, ? extends Object> context) {
         Map<String, Object> result = new HashMap<>();
-        Map<String, Object> result2 = ServiceUtil.returnSuccess();
-        Delegator delegator = ctx.getDelegator();
         LocalDispatcher dispatcher = ctx.getDispatcher();
-        GenericValue userLogin = (GenericValue) context.get("userLogin");
-        Timestamp now = UtilDateTime.nowTimestamp();
-        Debug.log("=====================rahul" + context);
 
         try {
             Map<String, Object> serviceCtx = ctx.makeValidContext("updatePartyGroup", ModelService.IN_PARAM, context);
@@ -194,28 +204,18 @@ public class SupplierDemoService {
                 return ServiceUtil.returnError(ServiceUtil.getErrorMessage(result));
             }
 
-
         } catch (GenericServiceException e) {
             Debug.logError(e, MODULE);
             return ServiceUtil.returnError(e.getMessage());
-
         }
-
         return ServiceUtil.returnSuccess();
     }
 
-    public static Map<String, Object> EditSupplierAddress(DispatchContext ctx, Map<String, ? extends Object> context) {
+    public static Map<String, Object> trainingUpdateSupplierPostalAddress(DispatchContext ctx, Map<String, ? extends Object> context) {
         Map<String, Object> result = new HashMap<>();
-        Map<String, Object> result2 = ServiceUtil.returnSuccess();
-        Delegator delegator = ctx.getDelegator();
         LocalDispatcher dispatcher = ctx.getDispatcher();
-        GenericValue userLogin = (GenericValue) context.get("userLogin");
-        Timestamp now = UtilDateTime.nowTimestamp();
         try {
             Map<String, Object> serviceCtx = ctx.makeValidContext("updatePartyPostalAddress", ModelService.IN_PARAM, context);
-            Debug.log("=====================" + serviceCtx);
-            serviceCtx.put("userLogin", userLogin);
-
 
             result = dispatcher.runSync("updatePartyPostalAddress", serviceCtx);
             if (ServiceUtil.isError(result)) {
@@ -224,13 +224,9 @@ public class SupplierDemoService {
             }
 
         } catch (GenericServiceException e) {
-
+            Debug.logError(e, MODULE);
+            return ServiceUtil.returnError(e.getMessage());
         }
-
-
-        result2.put(ModelService.RESPONSE_MESSAGE, ModelService.RESPOND_SUCCESS);
-        return result2;
+        return ServiceUtil.returnSuccess();
     }
-
-
 }

@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="contactNumber" class="col-sm-1 col-form-label">${uiLabelMap.CommonN}</label>
+          <label for="contactNumber" class="col-sm-1 col-form-label">${uiLabelMap.Phone}</label>
           <div class="col-sm-6">
             <input type="text" class="form-control" id="contactNumber" name="contactNumber" placeholder="contact Number" maxlength="10">
           </div>

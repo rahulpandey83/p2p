@@ -1,20 +1,19 @@
 <div class="screenlet-body">
   <div class="container">
     <div class="panel panel-default">
-        <div class="panel-heading">${uiLabelMap.ListSupplier}</div>
+      <div class="panel-heading">${uiLabelMap.ListSupplier}
         <div class="panel-body">
           <#if supplierList?has_content>
             <table class="table table-bordered table-striped table-hover">
-                <thead>
-              <tr>
-                    <th>${uiLabelMap.PartyId}</th>
-                    <th>${uiLabelMap.SupplierName}</th>
-                    <th>${uiLabelMap.Phone}</th>
-                    <th>${uiLabelMap.Email}</th>
-                    <th>${uiLabelMap.Address}</th>
+              <thead>
+                <tr>
+                  <th>${uiLabelMap.PartyId}</th>
+                  <th>${uiLabelMap.SupplierName}</th>
+                  <th>${uiLabelMap.Phone}</th>
+                  <th>${uiLabelMap.Email}</th>
+                  <th>${uiLabelMap.Address}</th>
                 </tr>
               </thead>
-
               <tbody>
                 <#list supplierList as supplierList>
                   <tr>
