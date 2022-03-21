@@ -1,46 +1,52 @@
 <div class="screenlet-body" xmlns="http://www.w3.org/1999/html">
   <div class="panel panel-default">
-    <div class="panel-heading">${uiLabelMap.Profile}
-    </div>
+    <div class="panel-heading">${uiLabelMap.Profile}</div>
     <div class="panel-body">
-      <#if supplierList?has_content>
-        <#list supplierList as supplierList>
+      <#if supplierInfo?has_content>
+        <#assign supplierInfo = supplierInfo/>
           <dl class="dl-horizontal col-sm-4">
             <dt>${uiLabelMap.PartyId} -</dt>
-            <dd>${supplierList.partyId!"-"}</dd>
+            <dd>${supplierInfo.partyId!}</dd>
             <dt>${uiLabelMap.SupplierName} -</dt>
-            <dd>${supplierList.groupName!"-"}</dd>
+            <dd>${supplierInfo.groupName!}</dd>
             <dt>${uiLabelMap.Phone} -</dt>
-            <dd>${supplierList.contactNumber!"-"}</dd>
+            <dd>${supplierInfo.contactNumber!}</dd>
             <dt>${uiLabelMap.CommonEmail} -</dt>
-            <dd>${supplierList.infoString!"-"}</dd>
+            <dd>${supplierInfo.infoString!}</dd>
           </dl>
-          <span class="pull-left"><a class="btn  btn-primary p3" href="<@ofbizUrl>UpdateSupplierDetail</@ofbizUrl>?partyId=${supplierList.partyId!}">Edit</a></span>
-        </#list>
+          <span class="pull-left"><a class="btn  btn-primary p3" href="<@ofbizUrl>UpdateSupplierDetail</@ofbizUrl>?partyId=${supplierInfo.partyId!}">Edit</a></span>
       </#if>
     </div>
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">${uiLabelMap.Address}</div>
     <div class="panel-body">
-      <#if supplierList?has_content>
-        <#list supplierList as supplierList>
-          <dl class="dl-horizontal col-sm-4">
+      <#if supplierInfo?has_content>
+      <#assign supplierAddressInfo = supplierInfo.supplierAddressInfo/>
+        <dl class="dl-horizontal col-sm-4">
+          <#if supplierAddressInfo.address1?has_content>
             <dt>${uiLabelMap.CommonAddress1} -</dt>
-            <dd>${supplierList.address1!"-"}</dd>
+            <dd>${supplierAddressInfo.address1!}</dd>
             <dt>${uiLabelMap.CommonAddress2} -</dt>
-            <dd>${supplierList.address2!"-"}</dd>
+            <dd>${supplierAddressInfo.address2!}</dd>
             <dt>${uiLabelMap.CommonCity} -</dt>
-            <dd>${supplierList.city!"-"}</dd>
+            <dd>${supplierAddressInfo.city!}</dd>
             <dt>${uiLabelMap.CommonZipPostalCode} -</dt>
-            <dd>${supplierList.postalCode!"-"}</dd>
+            <dd>${supplierAddressInfo.postalCode!}</dd>
             <dt>${uiLabelMap.CommonState} -</dt>
-            <dd>${supplierList.stateGeoName!"-"}</dd>
+            <dd>${supplierAddressInfo.stateGeoName!}</dd>
             <dt>${uiLabelMap.CommonCountry} -</dt>
-            <dd>${supplierList.countryGeoName!"-"}</dd>
-          </dl>
-          <span class=""><a class="btn  btn-primary p3" href="<@ofbizUrl>UpdateSupplierPostalAddress</@ofbizUrl>?partyId=${supplierList.partyId!}">Edit</a></span>
-        </#list>
+            <dd>${supplierAddressInfo.countryGeoName!}</dd>
+          <#else>
+            <dt>${uiLabelMap.CommonAddress1} -</dt>
+            <dt>${uiLabelMap.CommonAddress2} -</dt>
+            <dt>${uiLabelMap.CommonCity} -</dt>
+            <dt>${uiLabelMap.CommonZipPostalCode} -</dt>
+            <dt>${uiLabelMap.CommonState} -</dt>
+            <dt>${uiLabelMap.CommonCountry} -</dt>
+          </#if>
+        </dl>
+        <span class=""><a class="btn  btn-primary p3" href="<@ofbizUrl>UpdateSupplierPostalAddress</@ofbizUrl>?partyId=${supplierInfo.partyId!}">Edit</a></span>
       </#if>
     </div>
   </div>

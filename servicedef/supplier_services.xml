@@ -6,7 +6,7 @@
     <version>1.0</version>
 
     <service name="trainingCreateSupplier" engine="java"
-             location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="trainingCreateSupplier"
+             location="com.companyname.ofbizdemo.services.SupplierDemoServices" invoke="trainingCreateSupplier"
              auth="true">
         <description>Create a Supplier</description>
         <attribute name="groupName" type="String" mode="IN" optional="false"/>
@@ -21,7 +21,7 @@
     </service>
 
     <service name="trainingUpdateSupplierDetail" engine="java"
-             location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="trainingUpdateSupplierDetail"
+             location="com.companyname.ofbizdemo.services.SupplierDemoServices" invoke="trainingUpdateSupplierDetail"
              auth="true">
         <description>Update a Supplier</description>
         <attribute name="partyId" type="String" mode="IN" optional="false"/>
@@ -33,7 +33,7 @@
     </service>
 
     <service name="trainingUpdateSupplierPostalAddress" engine="java"
-             location="com.companyname.ofbizdemo.services.SupplierDemoService" invoke="trainingUpdateSupplierPostalAddress"
+             location="com.companyname.ofbizdemo.services.SupplierDemoServices" invoke="trainingUpdateSupplierPostalAddress"
              auth="true">
         <description>Update a Supplier</description>
         <attribute name="partyId" type="String" mode="IN" optional="false"/>

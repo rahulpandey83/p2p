@@ -15,8 +15,8 @@
     <request-map uri="createSupplier">
         <security https="true" auth="true"/>
         <event type="service" invoke="trainingCreateSupplier"/>
-        <response name="success" type="view" value="findSupplier"/>
-        <response name="error" type="view" value="findSupplier"/>
+        <response name="success" type="view" value="ViewProfile"/>
+        <response name="error" type="view" value="ViewProfile"/>
     </request-map>
     <request-map uri="FindSupplier">
         <security https="true" auth="true"/>
@@ -33,10 +33,10 @@
     <request-map uri="updateSupplierDetail">
         <security https="true" auth="true"/>
         <event type="service" invoke="trainingUpdateSupplierDetail"/>
-        <response name="success" type="request-redirect" value="viewProfile">
+        <response name="success" type="request-redirect" value="ViewProfile">
             <redirect-parameter name="partyId"/>
         </response>
-        <response name="error" type="request-redirect" value="viewProfile">
+        <response name="error" type="request-redirect" value="ViewProfile">
             <redirect-parameter name="partyId"/>
         </response>
     </request-map>
@@ -49,10 +49,10 @@
     <request-map uri="updateSupplierPostalAddress">
         <security https="true" auth="true"/>
         <event type="service" invoke="trainingUpdateSupplierPostalAddress"/>
-        <response name="success" type="request-redirect" value="viewProfile">
+        <response name="success" type="request-redirect" value="ViewProfile">
             <redirect-parameter name="partyId"/>
         </response>
-        <response name="error" type="request-redirect" value="viewProfile">
+        <response name="error" type="request-redirect" value="ViewProfile">
             <redirect-parameter name="partyId"/>
         </response>
     </request-map>

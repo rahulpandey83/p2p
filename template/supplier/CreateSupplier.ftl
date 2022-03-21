@@ -49,8 +49,8 @@
           <label for="stateProvinceGeoId" class="col-sm-1 col-form-label">${uiLabelMap.CommonState}</label>
           <div class="col-sm-6">
             <select  class="col-sm-12" id="stateProvinceGeoId" name="stateProvinceGeoId">
-              <#list states as stateType>
-              <option value='${stateType.geoId}'>${stateType.geoName}</option>
+              <#list states as state>
+              <option value='${state.geoId}'>${state.geoName}</option>
             </#list>
             </select>
           </div>
@@ -59,8 +59,8 @@
           <label for="countryGeoId" class="col-sm-1 col-form-label">${uiLabelMap.CommonCountry}</label>
           <div class="col-sm-6">
             <select  class="col-sm-12 " id="countryGeoId" name="countryGeoId">
-              <#list countries as countryType>
-              <option value='${countryType.geoId}'>${countryType.geoName}</option>
+              <#list countries as country>
+              <option value='${country.geoId}'>${country.geoName}</option>
             </#list>
             </select>
           </div>
