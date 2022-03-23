@@ -50,8 +50,8 @@
           <div class="col-sm-6">
             <select  class="col-sm-12" id="stateProvinceGeoId" name="stateProvinceGeoId">
               <#list states as state>
-              <option value='${state.geoId}'>${state.geoName}</option>
-            </#list>
+                <option value='${state.geoId}'>${state.geoName}</option>
+              </#list>
             </select>
           </div>
         </div>
@@ -60,8 +60,8 @@
           <div class="col-sm-6">
             <select  class="col-sm-12 " id="countryGeoId" name="countryGeoId">
               <#list countries as country>
-              <option value='${country.geoId}'>${country.geoName}</option>
-            </#list>
+                <option value='${country.geoId}'>${country.geoName}</option>
+              </#list>
             </select>
           </div>
         </div>
